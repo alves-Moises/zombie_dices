@@ -76,10 +76,28 @@ def nomes(i):
         time.sleep(1)
 
 def main():
-    lin()
-    print("Seja bem-vindo ao Zombie Dice.")
-    print("Podemos começar?")
-    lin()
+    #variaveis
+    jogadores = 0
+    lista_jogadores = []
+    info_jogadores = {}
+    
+    tubo = tubo_func()
+
+    dados = dados_func()
+
+    #info
+        #pontuação
+        # cerebros = 0
+        # tiros = 0
+        # passos = 0
+
+    boas_vindas()
+    #definir nomes e total de jogadores
+    lista_jogadores = nomes(listar_jogadores())
+
+    #definir atributos zerados a cada jogador
+    for nome in lista_jogadores:
+        info_jogadores[f'{nome}'] = {'C':0, 'T':0, 'P':0}
 
     while (jogadores < 2):
         print("Quantos jogadores irão participar? Precisamos de no minimo 2 jogadores:")
