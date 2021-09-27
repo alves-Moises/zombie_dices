@@ -116,6 +116,8 @@ def joga_dados(tube, lista_dados, dados_passos = []):
 def main():
     #variaveis
     jogadores = 0
+    lista_vitoria = []
+    lista_derrota = []
     lista_jogadores = []
     info_jogadores = {}
     
