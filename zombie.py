@@ -181,6 +181,22 @@ def main():
                 elif 'C' in dados_jogados:
                         print('Você gostaria de jogar novamente? \n[1] Sim \n[2] Não')
                         jogada = continue_function()
+                else:
+                        jogada = False
+                        input('Digite enter para continuar')
+            lin()    
+            lin()    
+            if lista_jogadores != []:
+                print('Próximo jogador: ')
+            else: game = False
+
+            #jogada = dados_jogada.append()
+
+    print(info_jogadores)
+    lin()
+    print('Fim de jogo')
+    lin()
+    print('Ranking:')
 
     for d in range(0,3):
         dado = random.choice(dados)
