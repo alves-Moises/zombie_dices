@@ -171,9 +171,14 @@ def main():
                     jogada = False
                     break
 
-                if 'C' in dados_jogados:
-                    print('Você gostaria de jogar novamente? \n[1] Sim \n[2] Não')
-                    jogada = continue_function()
+                elif verifica_morte(info_jogadores[nome]):
+                    lista_jogadores.remove(nome)
+                    lista_derrota.append(nome)
+                    jogada = False
+                    break
+                elif 'C' in dados_jogados:
+                        print('Você gostaria de jogar novamente? \n[1] Sim \n[2] Não')
+                        jogada = continue_function()
 
     for d in range(0,3):
         dado = random.choice(dados)
