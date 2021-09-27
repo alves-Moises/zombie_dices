@@ -1,14 +1,10 @@
 # Gustavo Manoel Sampaio - RA:1112021200400.
 # Análise e Desenvolvimento de Sistemas. 
 
-jogadores = 0
-lista_jogadores = []
-dados = ("CPCTPC","CPCTPC","CPCTPC","CPCTPC","CPCTPC","CPCTPC","TPCTPC","TPCTPC","TPCTPC","TPCTP","TPTCPT","TPTCPT","TPTCPT")
-cerebros = 0
-tiros = 0
-passos = 0
 import random
 import time 
+
+#desenha uma linha
 def lin():
     print('-=' *30, '\n')
 
