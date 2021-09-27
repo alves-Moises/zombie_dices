@@ -143,9 +143,25 @@ def main():
             dados_jogada = []
             while jogada:
                 dados_jogados = joga_dados(tubo, dados,  dados_jogada) 
-                print(dados_jogados)
-                print('Você gostaria de continuar? \n[1] Sim \n[2] Não')
-                jogada = continue_function()
+                print('Resultado:', dados_jogados)
+
+                #contabiliza valores
+                for dice in dados_jogados:
+                    if dice == 'C':
+                        info_jogadores[nome]['C'] += 1
+                    if dice == 'T':
+                        info_jogadores[nome]['T'] += 1
+
+                lin()   #printar informações
+                print('Nome: ', nome)
+                print('Cérebros: ', info_jogadores[nome]['C'])
+                print('Tiros: ', info_jogadores[nome]['T'])
+                lin()
+                verifica_venceu(info_jogadores[nome])
+
+                if 'C' in dados_jogados:
+                    print('Você gostaria de jogar novamente? \n[1] Sim \n[2] Não')
+                    jogada = continue_function()
 
     for d in range(0,3):
         dado = random.choice(dados)
