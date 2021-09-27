@@ -52,6 +52,8 @@ def continue_function():
             continuar = True if (x == 1) else False
     return continuar
         
+def joga_dado(tube, dado):
+    escolha = escolhe_dados(tube)
 
 #valida valor inteiro de entrada
 def valida_int():
