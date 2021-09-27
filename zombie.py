@@ -203,13 +203,9 @@ def main():
             print(f'Jogador {i+1}: {i} || Cérebros: ', info_jogadores[lista_vitoria[i]]['C'])
         lin()
             
-        if face == "C":
-            cerebros = cerebros + 1
-        elif face == "T":
-            tiros = tiros + 1
-        elif face == "P":
-            passos = passos + 1
-        time.sleep(1)
+    if not(lista_derrota == []):
+        for i in range(len(lista_derrota)):
+            print(f'Jogador {i+1}: {i} || Cérebros: ', info_jogadores[lista_vitoria[i]]['C'])
         lin()
     print(f"Cerebros = {cerebros}, Passos = {passos}, Tiros = {tiros}")
 
