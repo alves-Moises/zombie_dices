@@ -54,7 +54,9 @@ def continue_function():
         
 def joga_dado(tube, dado):
     escolha = escolhe_dados(tube)
-
+    
+    escolha = random.choice(dado[escolha])
+    return escolha
 #valida valor inteiro de entrada
 def valida_int():
     valid = False
