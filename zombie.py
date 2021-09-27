@@ -49,6 +49,13 @@ def verifica_venceu(jogador):
         venceu = False
     return venceu
 
+def verifica_morte(jogador):
+    if jogador['T'] == 3:
+        morte = True
+    else:
+        morte = False
+    return morte
+
 def continue_function():
     valid = False
     while not valid:
