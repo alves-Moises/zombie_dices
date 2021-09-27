@@ -164,7 +164,12 @@ def main():
                 print('Cérebros: ', info_jogadores[nome]['C'])
                 print('Tiros: ', info_jogadores[nome]['T'])
                 lin()
-                verifica_venceu(info_jogadores[nome])
+                
+                if verifica_venceu(info_jogadores[nome]):
+                    lista_jogadores.remove(nome)
+                    lista_vitoria.append(nome)
+                    jogada = False
+                    break
 
                 if 'C' in dados_jogados:
                     print('Você gostaria de jogar novamente? \n[1] Sim \n[2] Não')
