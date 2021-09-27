@@ -71,9 +71,33 @@ def valida_int():
 
 def nomes(i):
     for j in range(i):
-            nome_jogadores = input(str(f"Jogador {i+1}, digite seu nome:"))
-            lista_jogadores.append(input(f'Jogador {i+1}, digite seu nome: ')))
-        time.sleep(1)
+        lista_jogadores.append(input(f'Jogador {j+1}, digite seu nome: '))
+        time.sleep(0.5)
+    return lista_jogadores
+
+def listar_jogadores():
+    print('Digite o total de jogadores: (minimo 2 jogadores)')
+    valid = False
+    while not valid:
+        x = valida_int()
+        if x < 2:
+            print('A quantidade minima é de 2 jogadores.')
+        else:
+            valid = True
+    return x
+
+#escolhe um dado do tubo
+def escolhe_dados(tube):
+    return random.choice(tube)
+
+def joga_dados(tube, lista_dados, dados_passos = []):
+    i = 3 - len(dados_passos) #rodar só os passos caso existam
+    dados_jogando = []  #lista  dados jogados
+    while i < 3:
+        escolha = escolhe_dados(lista_dados)
+        dados_jogando.append(random.choice(tube[escolha]))
+        i += 1
+    print(dados_jogando)
 
 def main():
     #variaveis
