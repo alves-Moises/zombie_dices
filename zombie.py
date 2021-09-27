@@ -12,6 +12,52 @@ import time
 def lin():
     print('-=' *30, '\n')
 
+def tubo_func():
+    tubo = [
+            'g', 'g', 'g', 'g', 'g', 'g',   #verde
+            'y', 'y', 'y', 'y',             #amarelo
+            'r', 'r', 'r'                   #vermelho
+        ]
+    return tubo
+
+def dados_func():
+    dados = {
+            'g': [
+                'C', 'C', 'C',
+                'P', 'P',
+                'T'
+            ],
+            'y': [
+                'C', 'C',
+                'P', 'P',
+                'Y', 'Y'
+            ],
+            'r': [
+                'C',
+                'P', 'P',
+                'T', 'T', 'T', 
+            ]
+    }
+    return dados
+
+def boas_vindas():
+    lin()
+    print("Seja bem-vindo ao Zombie Dice.")
+    print("Podemos começar?")
+    lin()
+
+def continue_function():
+    valid = False
+    while not valid:
+        x = valida_int()
+        if not (x in [1, 2]):
+            print('resposta inválida.')
+        else:
+            continuar = True if (x == 1) else False
+    return continuar
+        
+
+#valida valor inteiro de entrada
 def valida_int():
     valid = False
     while not valid:
