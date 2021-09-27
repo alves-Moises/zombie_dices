@@ -42,6 +42,13 @@ def boas_vindas():
     print("Podemos começar?")
     lin()
 
+def verifica_venceu(jogador):
+    if jogador['C'] == 13:
+        venceu = True
+    else:
+        venceu = False
+    return venceu
+
 def continue_function():
     valid = False
     while not valid:
