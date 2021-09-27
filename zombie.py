@@ -127,7 +127,18 @@ def main():
         print("Quantos jogadores irão participar? Precisamos de no minimo 2 jogadores:")
         jogadores = valida_int()
 
-    
+        #jogada por jogador 'nome'
+        for nome in lista_jogadores:
+            dados_jogada = []
+
+            info_jogadores[nome]['T'] = 0
+            jogada = True
+            dados_jogada = []
+            while jogada:
+                dados_jogados = joga_dados(tubo, dados,  dados_jogada) 
+                print(dados_jogados)
+                print('Você gostaria de continuar? \n[1] Sim \n[2] Não')
+                jogada = continue_function()
 
     for d in range(0,3):
         dado = random.choice(dados)
