@@ -198,10 +198,9 @@ def main():
     lin()
     print('Ranking:')
 
-    for d in range(0,3):
-        dado = random.choice(dados)
-        face = random.choice(face)
-        print(f"Jogador {i} seu dado é {dado}, e a face é {face}!")
+    if not(lista_vitoria == []):
+        for i in range(len(lista_vitoria)):
+            print(f'Jogador {i+1}: {i} || Cérebros: ', info_jogadores[lista_vitoria[i]]['C'])
         lin()
             
         if face == "C":
