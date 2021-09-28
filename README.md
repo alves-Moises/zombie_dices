@@ -1,7 +1,6 @@
 # zombie_dices
 
 
-
 ### Dinâmica do Jogo: 
 
  O jogo é composto por um tubo que armazena 13 dados de 6 faces. Existem 3 tipos de dados diferentes: verdes, vermelhos e amarelos. Os dados possuem 3 símbolos diferentes (tiro, cérebro e passos). Os dados vermelhos são os mais difíceis, possuem um número maior de faces com o símbolo tiro. Os verdes são os mais fáceis, o maior número de faces do dado é de cérebro. Os dados amarelos são intermediários as faces dos dados possuem a mesma quantidade cérebros, tiros e passos. 
