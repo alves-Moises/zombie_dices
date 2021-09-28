@@ -1,6 +1,5 @@
 # Gustavo Manoel Sampaio - RA:1112021200400.
 # Análise e Desenvolvimento de Sistemas. 
-
 import random
 import time 
 
@@ -26,7 +25,7 @@ def dados_func():
             'y': [
                 'C', 'C',
                 'P', 'P',
-                'Y', 'Y'
+                'T', 'T'
             ],
             'r': [
                 'C',
@@ -43,14 +42,15 @@ def boas_vindas():
     lin()
 
 def verifica_venceu(jogador):
-    if jogador['C'] == 13:
+    if jogador['C'] >= 13:
         venceu = True
     else:
         venceu = False
     return venceu
 
 def verifica_morte(jogador):
-    if jogador['T'] == 3:
+    print('jogador: ', jogador)
+    if jogador['T'] >= 3:
         morte = True
     else:
         morte = False
@@ -63,17 +63,14 @@ def continue_function():
         if not (x in [1, 2]):
             print('resposta inválida.')
         else:
-            continuar = True if (x == 1) else False
-    return continuar
-        
-# def joga_dado(tube, dado):
-#     escolha = escolhe_dados(tube)
-    
-#     escolha = random.choice(dado[escolha])
-#     return escolha
+            if x == 1:
+                continuar = True
+            else:
+                continuar = False
+            valid = True
 
-    escolha = random.choice(dado[escolha])
-    return escolha
+    return continuar
+
 #valida valor inteiro de entrada
 def valida_int():
     valid = False
@@ -87,6 +84,7 @@ def valida_int():
     return x
 
 def nomes(i):
+    lista_jogadores = []
     for j in range(i):
         lista_jogadores.append(input(f'Jogador {j+1}, digite seu nome: '))
         time.sleep(0.5)
@@ -125,19 +123,11 @@ def main():
     lista_derrota = []
     lista_jogadores = []
     info_jogadores = {}
-    
     tubo = tubo_func()
-
     dados = dados_func()
 
-    #info
-        #pontuação
-        # cerebros = 0
-        # tiros = 0
-        # passos = 0
-
     boas_vindas()
-    
+
     #definir nomes e total de jogadores
     lista_jogadores = nomes(listar_jogadores())
 
@@ -180,12 +170,11 @@ def main():
                     lista_jogadores.remove(nome)
                     lista_vitoria.append(nome)
                     jogada = False
-                    break
 
                 elif verifica_morte(info_jogadores[nome]):
-                    print('!#' * 60)
+                    print('!#' * 50)
                     print(f'Jogador {nome} perdeu.')
-                    print('!#' * 60)
+                    print('!#' * 50)
 
                     lista_jogadores.remove(nome)
                     lista_derrota.append(nome)
@@ -198,20 +187,17 @@ def main():
                         jogada = False
                         input('Digite enter para continuar')
             lin()    
-            lin()    
             if lista_jogadores != []:
                 print('Próximo jogador: ')
             else: game = False
 
             #jogada = dados_jogada.append()
 
-    print(info_jogadores)
     lin()
     print('Fim de jogo')
     lin()
 
     print('Ranking:')
-
     if not(lista_vitoria == []):
         for i in range(len(lista_vitoria)):
             print(f'Jogador {i+1}: {lista_vitoria[i]} || Cérebros: ', info_jogadores[lista_vitoria[i]]['C'])
