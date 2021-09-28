@@ -1,5 +1,3 @@
-# Gustavo Manoel Sampaio - RA:1112021200400.
-# Análise e Desenvolvimento de Sistemas. 
 import random
 import time 
 
