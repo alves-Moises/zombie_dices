@@ -112,7 +112,7 @@ def joga_dados(tube, lista_dados, dados_passos = []):
     dados_jogando = []  #lista  dados jogados
     while i < 3:
         escolha = escolhe_dados(tube)
-        print('Dado escolhido: ', escolha)
+        print('Dado escolhido: ', 'Vermelho' if escolha == 'r' else 'Amarelo' if escolha == 'y' else 'Verde')
         dados_jogando.append(random.choice(lista_dados[escolha]))
         i += 1
     return dados_jogando
