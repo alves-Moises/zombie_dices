@@ -66,9 +66,12 @@ def continue_function():
             continuar = True if (x == 1) else False
     return continuar
         
-def joga_dado(tube, dado):
-    escolha = escolhe_dados(tube)
+# def joga_dado(tube, dado):
+#     escolha = escolhe_dados(tube)
     
+#     escolha = random.choice(dado[escolha])
+#     return escolha
+
     escolha = random.choice(dado[escolha])
     return escolha
 #valida valor inteiro de entrada
@@ -105,14 +108,16 @@ def escolhe_dados(tube):
     return random.choice(tube)
 
 def joga_dados(tube, lista_dados, dados_passos = []):
-    i = 3 - len(dados_passos) #rodar só os passos caso existam
+    i = 0 #rodar só os passos caso existam
     dados_jogando = []  #lista  dados jogados
     while i < 3:
-        escolha = escolhe_dados(lista_dados)
-        dados_jogando.append(random.choice(tube[escolha]))
+        escolha = escolhe_dados(tube)
+        print('Dado escolhido: ', escolha)
+        dados_jogando.append(random.choice(lista_dados[escolha]))
         i += 1
-    print(dados_jogando)
+    return dados_jogando
 
+#inicio do programa
 def main():
     #variaveis
     jogadores = 0
@@ -132,6 +137,7 @@ def main():
         # passos = 0
 
     boas_vindas()
+    
     #definir nomes e total de jogadores
     lista_jogadores = nomes(listar_jogadores())
 
@@ -139,17 +145,18 @@ def main():
     for nome in lista_jogadores:
         info_jogadores[f'{nome}'] = {'C':0, 'T':0, 'P':0}
 
-    while (jogadores < 2):
-        print("Quantos jogadores irão participar? Precisamos de no minimo 2 jogadores:")
-        jogadores = valida_int()
-
+    game = True
+    #looping do jogo
+    while game and (lista_jogadores != []):
+        info_jogadores[nome]['T'] = 0
         #jogada por jogador 'nome'
         for nome in lista_jogadores:
             dados_jogada = []
 
-            info_jogadores[nome]['T'] = 0
+            
             jogada = True
-            dados_jogada = []
+            lin()
+            print(f'Jogada de {nome}:')
             while jogada:
                 dados_jogados = joga_dados(tubo, dados,  dados_jogada) 
                 print('Resultado:', dados_jogados)
@@ -166,18 +173,20 @@ def main():
                 print('Cérebros: ', info_jogadores[nome]['C'])
                 print('Tiros: ', info_jogadores[nome]['T'])
                 lin()
-                
+
                 if verifica_venceu(info_jogadores[nome]):
+                    print(f'Jogador {nome} venceu.')
                     lista_jogadores.remove(nome)
                     lista_vitoria.append(nome)
                     jogada = False
                     break
 
                 elif verifica_morte(info_jogadores[nome]):
+                    print(f'Jogador {nome} perdeu.')
                     lista_jogadores.remove(nome)
                     lista_derrota.append(nome)
                     jogada = False
-                    break
+                
                 elif 'C' in dados_jogados:
                         print('Você gostaria de jogar novamente? \n[1] Sim \n[2] Não')
                         jogada = continue_function()
@@ -196,16 +205,17 @@ def main():
     lin()
     print('Fim de jogo')
     lin()
+
     print('Ranking:')
 
     if not(lista_vitoria == []):
         for i in range(len(lista_vitoria)):
-            print(f'Jogador {i+1}: {i} || Cérebros: ', info_jogadores[lista_vitoria[i]]['C'])
+            print(f'Jogador {i+1}: {lista_vitoria[i]} || Cérebros: ', info_jogadores[lista_vitoria[i]]['C'])
         lin()
-            
-    if not(lista_derrota == []):
-        for i in range(len(lista_derrota)):
-            print(f'Jogador {i+1}: {i} || Cérebros: ', info_jogadores[lista_vitoria[i]]['C'])
-        lin()
-    print(f"Cerebros = {cerebros}, Passos = {passos}, Tiros = {tiros}")
 
+    if not(lista_derrota == []):
+        print('Lista derrota:')
+        for i in range(len(lista_derrota)):
+            print(f'Jogador {i+1}: {lista_derrota[i]} || Cérebros: ', info_jogadores[lista_derrota[i]]['C'])
+        lin()
+main()
