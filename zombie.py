@@ -183,7 +183,10 @@ def main():
                     break
 
                 elif verifica_morte(info_jogadores[nome]):
+                    print('!#' * 60)
                     print(f'Jogador {nome} perdeu.')
+                    print('!#' * 60)
+
                     lista_jogadores.remove(nome)
                     lista_derrota.append(nome)
                     jogada = False
