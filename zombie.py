@@ -160,6 +160,7 @@ def main():
             while jogada:
                 dados_jogados = joga_dados(tubo, dados,  dados_jogada) 
                 print('Resultado:', dados_jogados)
+                print('C: cerebro || T: tiro || P: passos')
 
                 #contabiliza valores
                 for dice in dados_jogados:
